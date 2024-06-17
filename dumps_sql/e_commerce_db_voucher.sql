@@ -1,0 +1,59 @@
+-- MySQL dump 10.13  Distrib 8.0.36, for macos14 (arm64)
+--
+-- Host: localhost    Database: e_commerce_db
+-- ------------------------------------------------------
+-- Server version	8.3.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `voucher`
+--
+
+DROP TABLE IF EXISTS `voucher`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `voucher` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `discount` float NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `end_date` varchar(255) NOT NULL,
+  `start_date` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `total` int NOT NULL,
+  `remain` int NOT NULL,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `voucher`
+--
+
+LOCK TABLES `voucher` WRITE;
+/*!40000 ALTER TABLE `voucher` DISABLE KEYS */;
+INSERT INTO `voucher` VALUES (2,10,'1','VOUCHER001','2024-06-30','2024-06-01','Giảm 10%',100,100,'percent'),(3,15,'1','VOUCHER002','2024-06-30','2024-06-01','Giảm 15%',150,150,'percent'),(4,20,'1','VOUCHER003','2024-07-15','2024-06-01','Giảm 20%',200,200,'percent'),(5,25,'1','VOUCHER004','2024-07-15','2024-06-15','Giảm 25%',250,250,'percent'),(6,30,'1','VOUCHER005','2024-07-31','2024-07-01','Giảm 30%',300,300,'percent'),(7,50000,'1','VOUCHER006','2024-07-31','2024-07-01','Giảm 50,000 VNĐ',350,350,'fixed'),(8,100000,'1','VOUCHER007','2024-06-15','2024-06-01','Giảm 100,000 VNĐ',100,100,'fixed'),(9,150000,'1','VOUCHER008','2024-06-30','2024-06-15','Giảm 150,000 VNĐ',150,150,'fixed'),(10,200000,'1','VOUCHER009','2024-07-31','2024-07-01','Giảm 200,000 VNĐ',200,200,'fixed'),(11,250000,'1','VOUCHER010','2024-07-31','2024-07-01','Giảm 250,000 VNĐ',250,250,'fixed'),(12,35,'1','VOUCHER011','2024-06-30','2024-06-01','Giảm 35%',300,300,'percent'),(13,40,'1','VOUCHER012','2024-06-30','2024-06-01','Giảm 40%',350,350,'percent'),(14,300000,'1','VOUCHER013','2024-06-30','2024-06-01','Giảm 300,000 VNĐ',400,400,'fixed'),(15,350000,'1','VOUCHER014','2024-06-30','2024-06-01','Giảm 350,000 VNĐ',450,450,'fixed'),(16,45,'1','VOUCHER015','2024-06-30','2024-06-01','Giảm 45%',500,500,'percent'),(17,50,'1','VOUCHER016','2024-06-30','2024-06-01','Giảm 50%',550,550,'percent'),(18,400000,'1','VOUCHER017','2024-06-30','2024-06-01','Giảm 400,000 VNĐ',600,600,'fixed'),(19,450000,'1','VOUCHER018','2024-06-30','2024-06-01','Giảm 450,000 VNĐ',650,650,'fixed'),(20,60,'1','VOUCHER019','2024-06-30','2024-06-01','Giảm 60%',700,700,'percent'),(21,65,'1','VOUCHER020','2024-06-30','2024-06-01','Giảm 65%',750,750,'percent');
+/*!40000 ALTER TABLE `voucher` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-06-12 21:42:44
