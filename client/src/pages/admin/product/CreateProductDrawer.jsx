@@ -43,7 +43,7 @@ const CreateProductDrawer = (props) => {
     {
       id: 'category-field',
       label: 'Loại laptop',
-      name: 'category',
+      name: 'category_id',
       type: 'select',
       options: categories.map((item) => {
         return { id: item.id, title: item.title };
@@ -81,6 +81,22 @@ const CreateProductDrawer = (props) => {
       type: 'text',
       value: '',
       placeholder: 'Nhập tên CPU',
+    },
+    {
+      id: 'pin-field',
+      label: 'Pin',
+      name: 'pin',
+      type: 'text',
+      value: '',
+      placeholder: 'Nhập thông tin pin',
+    },
+    {
+      id: 'wifi-field',
+      label: 'Wifi',
+      name: 'wifi',
+      type: 'text',
+      value: '',
+      placeholder: 'Nhập thông tin wifi',
     },
     {
       id: 'ram-field',
@@ -199,10 +215,12 @@ const CreateProductDrawer = (props) => {
   const initialValues = {
     title: 'quan',
     description: 'nguyen',
-    category: '1',
+    category_id: 1,
     price: '123123',
     discount: '12',
     total: '123',
+    pin: '-',
+    wifi: '-',
     cpu: '-',
     ram: '-',
     battery: '-',
@@ -242,6 +260,11 @@ const CreateProductDrawer = (props) => {
           initialValues.price = parseFloat(initialValues.price);
           initialValues.discount = parseInt(initialValues.discount);
           initialValues.total = parseInt(initialValues.total);
+          initialValues.imageUrls = "-";
+          initialValues.lan = "false";
+          initialValues.category = {
+              id: initialValues.category_id,
+          };
         } catch (e) {
           return;
         }
