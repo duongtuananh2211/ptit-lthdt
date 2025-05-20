@@ -1,1 +1,0 @@
-# Authentication. Used to firebase.
