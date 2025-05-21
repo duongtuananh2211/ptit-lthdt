@@ -34,24 +34,6 @@ const status = [
 const DashboardPage = () => {
   const [message, setMessage] = useState({});
 
-  useEffect(() => {
-    const socket = new WebSocket('ws://localhost:8080/msg');
-    socket.onopen = function (event) {
-      socket.send('Hello Server!');
-    };
-    socket.onmessage = function (event) {
-      // const json = JSON.parse(event.data);
-      console.log(`[message] Data received from server: ${event.data}`);
-      try {
-        if ((event.data = 'data')) {
-          console.log(event.data);
-        }
-      } catch (err) {
-        // whatever you wish to do with the err
-      }
-    };
-  }, []);
-
   const [value, setValue] = useState('month');
   const [slot, setSlot] = useState('month');
 
