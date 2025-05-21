@@ -3,6 +3,7 @@ import OrderTable from './OrderTable';
 import { useEffect, useState } from 'react';
 import CreateOrderDrawer from './CreateOrderDrawer';
 import EditOrderDrawer from './EditOrderDrawer';
+import { API_URL } from '../../../config';
 
 const OrderPage = () => {
   const [openNew, setOpenNew] = useState(false);
@@ -16,7 +17,7 @@ const OrderPage = () => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/order')
+    fetch(`${API_URL}/order`)
       .then((data) => data.json())
       .then((data) => {
         setOrders(data);
@@ -29,7 +30,7 @@ const OrderPage = () => {
 
   const handleCreate = (order) => {
     console.log(order);
-    fetch('http://localhost:8080/api/order', {
+    fetch(`${API_URL}/order`, {
       body: JSON.stringify(order),
       method: 'POST',
       headers: {

@@ -4,6 +4,7 @@ import { ArrowBack } from '@mui/icons-material';
 import AddProductCollection from './AddProductCollection';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../../config';
 
 const CreateCollectionPage = () => {
   const [selected, setSelected] = useState([]);
@@ -67,7 +68,7 @@ const CreateCollectionPage = () => {
                 productId: item,
               };
             });
-            fetch('http://localhost:8080/api/collection', {
+            fetch(`${API_URL}/collection`, {
               body: JSON.stringify(values),
               headers: {
                 'Content-type': 'Application/json',

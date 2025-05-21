@@ -4,6 +4,7 @@ import CartPayment from './CartPayment';
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { enqueueSnackbar } from 'notistack';
+import { API_URL } from '../../../config';
 
 const CheckoutPage = () => {
   const [products, setProducts] = useState([]);
@@ -242,7 +243,7 @@ const CheckoutPage = () => {
                 }),
               };
               console.log(order);
-              fetch('http://localhost:8080/api/order', {
+              fetch(`${API_URL}/order`, {
                 body: JSON.stringify(order),
                 method: 'POST',
                 headers: {

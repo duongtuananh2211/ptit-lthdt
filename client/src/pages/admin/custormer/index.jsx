@@ -3,6 +3,7 @@ import CustomerTable from './CustomerTable';
 import { useEffect, useState } from 'react';
 import CreateCustomerDrawer from './CreateCustomerDrawer';
 import EditCustomerDrawer from './EditCustomerDrawer';
+import { API_URL } from '../../../config';
 
 const CustomerPage = () => {
   const [openNew, setOpenNew] = useState(false);
@@ -16,7 +17,7 @@ const CustomerPage = () => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/customer')
+    fetch(`${API_URL}/customer`)
       .then((data) => data.json())
       .then((data) => {
         setCustomers(data);
@@ -29,7 +30,7 @@ const CustomerPage = () => {
 
   const handleCreate = (customer) => {
     console.log(customer);
-    fetch('http://localhost:8080/api/customer', {
+    fetch(`${API_URL}/customer`, {
       body: JSON.stringify(customer),
       method: 'POST',
       headers: {

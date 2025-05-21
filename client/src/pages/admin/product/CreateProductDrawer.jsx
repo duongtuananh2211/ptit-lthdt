@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import FormDrawer from '../../../components/FormDrawer';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../../../config';
 
 const CreateProductDrawer = (props) => {
   const { open, onClose, handleCreate } = props;
@@ -11,7 +12,7 @@ const CreateProductDrawer = (props) => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/category')
+    fetch(`${API_URL}/category`)
       .then((data) => data.json())
       .then((data) => {
         setCategories(data);

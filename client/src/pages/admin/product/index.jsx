@@ -3,6 +3,7 @@ import ProductTable from './ProductTable';
 import CreateProductDrawer from './CreateProductDrawer';
 import EditProductDrawer from './EditProductDrawer';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../../../config';
 
 const ProductPage = () => {
   const [openNew, setOpenNew] = useState(false);
@@ -16,7 +17,7 @@ const ProductPage = () => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/product')
+    fetch(`${API_URL}/product`)
       .then((data) => data.json())
       .then((data) => {
         setProducts(data);
@@ -29,7 +30,7 @@ const ProductPage = () => {
 
   const handleCreate = (product) => {
     console.log(product);
-    fetch('http://localhost:8080/api/product', {
+    fetch(`${API_URL}/product`, {
       body: JSON.stringify(product),
       method: 'POST',
       headers: {

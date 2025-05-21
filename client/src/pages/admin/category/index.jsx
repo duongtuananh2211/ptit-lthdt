@@ -3,6 +3,7 @@ import CategoryTable from './CategoryTable';
 import CreateCategoryDrawer from './CreateCategoryDrawer';
 import { useEffect, useState } from 'react';
 import EditCategoryDrawer from './EditCategoryDrawer';
+import { API_URL } from '../../../config';
 
 const CategoryPage = () => {
   const [openNew, setOpenNew] = useState(false);
@@ -16,7 +17,7 @@ const CategoryPage = () => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/category')
+    fetch(`${API_URL}/category`)
       .then((data) => data.json())
       .then((data) => {
         setCategories(data);
@@ -29,7 +30,7 @@ const CategoryPage = () => {
 
   const handleCreate = (category) => {
     console.log(category);
-    fetch('http://localhost:8080/api/category', {
+    fetch(`${API_URL}/category`, {
       body: JSON.stringify(category),
       method: 'POST',
       headers: {

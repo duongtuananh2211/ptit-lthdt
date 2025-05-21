@@ -11,6 +11,7 @@ import React, { useEffect, useState } from 'react';
 import TextField from '../../../components/form/fields/TextField';
 import { Add } from '@mui/icons-material';
 import Input from '../../../components/input/Input';
+import { API_URL } from '../../../config';
 
 const SelectProductDialog = (props) => {
   const {
@@ -128,7 +129,7 @@ const AddProductCollection = (props) => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/product')
+    fetch(`${API_URL}/product`)
       .then((data) => data.json())
       .then((data) => {
         setProducts(data);

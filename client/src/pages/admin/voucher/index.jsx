@@ -2,6 +2,7 @@ import { Stack, Typography } from '@mui/material';
 import VoucherTable from './VoucherTable';
 import CreateVoucherDrawer from './CreateVoucherDrawer';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../../../config';
 
 const VoucherPage = () => {
   const [openNew, setOpenNew] = useState(false);
@@ -15,7 +16,7 @@ const VoucherPage = () => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/voucher')
+    fetch(`${API_URL}/voucher`)
       .then((data) => data.json())
       .then((data) => {
         setVouchers(data);
@@ -28,7 +29,7 @@ const VoucherPage = () => {
 
   const handleCreate = (voucher) => {
     console.log(voucher);
-    fetch('http://localhost:8080/api/voucher', {
+    fetch(`${API_URL}/voucher`, {
       body: JSON.stringify(voucher),
       method: 'POST',
       headers: {

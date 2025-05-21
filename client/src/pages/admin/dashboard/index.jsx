@@ -19,6 +19,7 @@ import {
   moneyFormatter,
   numberWithCommas,
 } from '../../../utils/moneyFormatter';
+import { API_URL } from '../../../config';
 
 const status = [
   {
@@ -53,7 +54,7 @@ const DashboardPage = () => {
   });
 
   const fetchData = () => {
-    fetch('http://localhost:8080/api/admin')
+    fetch(`${API_URL}/admin`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);

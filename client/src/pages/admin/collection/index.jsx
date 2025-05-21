@@ -1,6 +1,7 @@
 import { Stack, Typography } from '@mui/material';
 import CollectionTable from './CollectionTable';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../../../config';
 
 const CollectionPage = () => {
   const [collections, setCollections] = useState([]);
@@ -10,7 +11,7 @@ const CollectionPage = () => {
       console.log('Filtered: ', filters);
       return;
     }
-    fetch('http://localhost:8080/api/collection')
+    fetch(`${API_URL}/collection`)
       .then((data) => data.json())
       .then((data) => {
         setCollections(data);
