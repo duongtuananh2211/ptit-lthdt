@@ -3,13 +3,14 @@ import { moneyFormatter } from '../../../utils/moneyFormatter';
 import { useEffect, useState } from 'react';
 import EditProductDrawer from './EditProductDrawer';
 import { useParams } from 'react-router-dom';
+import { API_URL } from '../../../config';
 
 const ProductDetailAdminPage = () => {
   const [openEdit, setOpenEdit] = useState(false);
   const [product, setProduct] = useState(null);
 
   const fetchData = (id) => {
-    fetch(`http://localhost:8080/api/product/${id}`)
+    fetch(`${API_URL}/product/${id}`)
       .then((data) => data.json())
       .then((data) => {
         setProduct(data);

@@ -133,7 +133,7 @@ const CheckoutPage = () => {
     cart = JSON.parse(cart);
     let queryParams = cart.reduce((pre, cur) => pre + `ids=${cur['id']}&`, '');
     queryParams = queryParams.substring(0, queryParams.length - 1);
-    fetch(`http://localhost:8080/api/product/bulk?${queryParams}`)
+    fetch(`${API_URL}/product/bulk?${queryParams}`)
       .then((data) => data.json())
       .then((data) => {
         if ('status' in data) {

@@ -4,6 +4,7 @@ import { ArrowBack } from '@mui/icons-material';
 import AddProductCollection from './AddProductCollection';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../../../config';
 
 const EditCollectionPage = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const EditCollectionPage = () => {
   const [selected, setSelected] = useState([]);
 
   const fetchData = (id) => {
-    fetch(`http://localhost:8080/api/collection/${id}`)
+    fetch(`${API_URL}/collection/${id}`)
       .then((data) => data.json())
       .then((data) => {
         setCollection(data);
@@ -77,7 +78,7 @@ const EditCollectionPage = () => {
               formFields={generalFormFields}
               initialValues={initialValues}
               onSubmit={(values) => {
-                fetch(`http://localhost:8080/api/collection/${id}`, {
+                fetch(`${API_URL}/collection/${id}`, {
                   body: JSON.stringify(values),
                   headers: {
                     'Content-type': 'Application/json',

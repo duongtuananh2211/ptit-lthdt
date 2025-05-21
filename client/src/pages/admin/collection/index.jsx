@@ -25,7 +25,7 @@ const CollectionPage = () => {
   const handleDelete = async (collectionIds) => {
     console.log(collectionIds);
     for (let i = 0; i < collectionIds.length; i++) {
-      await fetch(`http://localhost:8080/api/collection/${collectionIds[i]}`, {
+      await fetch(`${API_URL}/collection/${collectionIds[i]}`, {
         method: 'DELETE',
       });
     }

@@ -13,6 +13,7 @@ import { Formik } from 'formik';
 import { enqueueSnackbar } from 'notistack';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -78,7 +79,7 @@ const Register = () => {
                 onSubmit={async (values, { setSubmitting }) => {
                   if (values['password1'] !== values['password2']) return;
                   const response = await fetch(
-                    `http://localhost:8080/api/user/register`,
+                    `${API_URL}/user/register`,
                     {
                       method: 'POST',
                       body: JSON.stringify({

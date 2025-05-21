@@ -45,7 +45,7 @@ const ProductPage = () => {
 
   const handleEdit = (product) => {
     console.log(product);
-    fetch(`http://localhost:8080/api/product/${product.id}`, {
+    fetch(`${API_URL}/product/${product.id}`, {
       body: JSON.stringify(product),
       method: 'PUT',
       headers: {
@@ -61,7 +61,7 @@ const ProductPage = () => {
   const handleDelete = async (productIds) => {
     console.log(productIds);
     for (let i = 0; i < productIds.length; i++) {
-      await fetch(`http://localhost:8080/api/product/${productIds[i]}`, {
+      await fetch(`${API_URL}/product/${productIds[i]}`, {
         method: 'DELETE',
       });
     }

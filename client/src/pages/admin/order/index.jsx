@@ -46,7 +46,7 @@ const OrderPage = () => {
 
   const handleEdit = (order) => {
     console.log(order);
-    fetch(`http://localhost:8080/api/order/${order.id}`, {
+    fetch(`${API_URL}/order/${order.id}`, {
       body: JSON.stringify(order),
       method: 'PUT',
       headers: {
@@ -62,7 +62,7 @@ const OrderPage = () => {
 
   const handleDelete = async (orderIds) => {
     for (let i = 0; i < orderIds.length; i++) {
-      await fetch(`http://localhost:8080/api/order/${orderIds[i]}`, {
+      await fetch(`${API_URL}/order/${orderIds[i]}`, {
         method: 'DELETE',
       });
     }

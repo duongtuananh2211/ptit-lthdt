@@ -14,6 +14,7 @@ import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 import { Formik } from 'formik';
 import { useState } from 'react';
 import { enqueueSnackbar } from 'notistack';
+import { API_URL } from '../../config';
 
 const AuthLogin = () => {
   const navigate = useNavigate();
@@ -88,7 +89,7 @@ const AuthLogin = () => {
                 }}
                 onSubmit={async (values, { setSubmitting }) => {
                   const response = await fetch(
-                    `http://localhost:8080/api/user/login`,
+                    `${API_URL}/user/login`,
                     {
                       method: 'POST',
                       body: JSON.stringify(values),

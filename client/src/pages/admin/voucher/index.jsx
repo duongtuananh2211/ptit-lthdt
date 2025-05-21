@@ -45,7 +45,7 @@ const VoucherPage = () => {
 
   const handleEdit = (voucher) => {
     console.log(voucher);
-    fetch(`http://localhost:8080/api/voucher/${voucher.id}`, {
+    fetch(`${API_URL}/voucher/${voucher.id}`, {
       body: JSON.stringify(voucher),
       method: 'PUT',
       headers: {
@@ -62,7 +62,7 @@ const VoucherPage = () => {
   const handleDelete = async (voucherIds) => {
     console.log(voucherIds);
     for (let i = 0; i < voucherIds.length; i++) {
-      await fetch(`http://localhost:8080/api/voucher/${voucherIds[i]}`, {
+      await fetch(`${API_URL}/voucher/${voucherIds[i]}`, {
         method: 'DELETE',
       });
     }

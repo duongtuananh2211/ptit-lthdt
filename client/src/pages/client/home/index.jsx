@@ -5,13 +5,14 @@ import FeaturedCategory from './FeaturedCategory';
 import PurchasedCustomer from './PurchasedCustomer';
 import SaleEvent from './SaleEvent';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../../../config';
 
 const HomePage = () => {
   const [bestSellingProducts, setBestSellingProducts] = useState([]);
   const [newProducts, setNewProducts] = useState([]);
 
   const fetchData = () => {
-    fetch(`http://localhost:8080/api/product/best-selling`)
+    fetch(`${API_URL}/product/best-selling`)
       .then((data) => data.json())
       .then((data) => {
         if ('status' in data) {
@@ -20,7 +21,7 @@ const HomePage = () => {
         setBestSellingProducts(data);
       });
 
-    fetch(`http://localhost:8080/api/product/new`)
+    fetch(`${API_URL}/product/new`)
       .then((data) => data.json())
       .then((data) => {
         if ('status' in data) {

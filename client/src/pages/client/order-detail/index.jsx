@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import generatePDF from 'react-to-pdf';
+import { API_URL } from '../../../config';
 
 const OrderDetailPage = () => {
   const [order, setOrder] = useState({
@@ -27,7 +28,7 @@ const OrderDetailPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/order/${id}`)
+    fetch(`${API_URL}/order/${id}`)
       .then((data) => data.json())
       .then((data) => {
         console.log(data);

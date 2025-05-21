@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
-import Logout from './Logout';
-import OrdersHistory from './OrdersHistory';
-import Profile from './Profile';
-import Viewed from './Viewed';
+import { useEffect, useState } from "react";
+import Logout from "./Logout";
+import OrdersHistory from "./OrdersHistory";
+import Profile from "./Profile";
+import Viewed from "./Viewed";
+import { API_URL } from "../../../../config";
 
 const Content = (props) => {
   const [orders, setOrders] = useState([]);
 
   const fetchData = () => {
     fetch(
-      // `http://localhost:8080/api/order/user/${props.user['customer']['id']}`
-      `http://localhost:8080/api/order/user/1000`
+      // `${API_URL}/order/user/${props.user['customer']['id']}`
+      `${API_URL}/order/user/1000`
     )
       .then((data) => data.json())
       .then((data) => {
@@ -27,8 +28,8 @@ const Content = (props) => {
       {props.tab === 0 && (
         <Profile
           data={{
-            ...props.user['customer'],
-            email: props.user['email'],
+            ...props.user["customer"],
+            email: props.user["email"],
           }}
         />
       )}

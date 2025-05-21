@@ -7,6 +7,7 @@ import RelatedTab from './RelatedTab';
 import ReviewedProduct from './ReviewedProduct';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from '../../../config';
 
 const ProductDetailPage = () => {
   const [reviewedProduct] = useState([]);
@@ -20,7 +21,7 @@ const ProductDetailPage = () => {
       navigate('/not-found');
     }
     let rId = spl[spl.length - 1].split('prod')[1];
-    fetch(`http://localhost:8080/api/product/${rId}`)
+    fetch(`${API_URL}/product/${rId}`)
       .then((data) => data.json())
       .then((data) => {
         if ('error' in data && 'status' in data) {
@@ -57,7 +58,7 @@ const ProductDetailPage = () => {
   };
 
   const fetchDataCategory = () => {
-    fetch(`http://localhost:8080/api/category/${product['category']['id']}`)
+    fetch(`${API_URL}/category/${product['category']['id']}`)
       .then((data) => data.json())
       .then((data) => {
         setCategory(data);

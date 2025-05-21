@@ -4,6 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import { moneyFormatter } from '../../../utils/moneyFormatter';
 import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { API_URL } from '../../../config';
 
 const rainbowAnimation = keyframes`
   0% { background-position: 0% 50%; }
@@ -55,7 +56,7 @@ const SaleEvent = () => {
   const [collections, setCollections] = useState(null);
 
   const fetchData = () => {
-    fetch(`http://localhost:8080/api/collection/user/flash-sale`)
+    fetch(`${API_URL}/collection/user/flash-sale`)
       .then((data) => data.json())
       .then((data) => {
         if ('status' in data) {

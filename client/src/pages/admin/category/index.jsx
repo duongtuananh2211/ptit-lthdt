@@ -46,7 +46,7 @@ const CategoryPage = () => {
 
   const handleEdit = (category) => {
     console.log(category);
-    fetch(`http://localhost:8080/api/category/${category.id}`, {
+    fetch(`${API_URL}/category/${category.id}`, {
       body: JSON.stringify(category),
       method: 'PUT',
       headers: {
@@ -63,7 +63,7 @@ const CategoryPage = () => {
   const handleDelete = async (categoryIds) => {
     console.log(categoryIds);
     for (let i = 0; i < categoryIds.length; i++) {
-      await fetch(`http://localhost:8080/api/category/${categoryIds[i]}`, {
+      await fetch(`${API_URL}/category/${categoryIds[i]}`, {
         method: 'DELETE',
       });
     }
